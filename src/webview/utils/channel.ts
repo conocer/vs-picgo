@@ -1,7 +1,7 @@
 import Channel from '@luozhu/vscode-channel'
 import { IMessageToShow } from '../../utils'
 import { W2VMessage } from '../../utils/message-method'
-import { IImgInfo } from 'picgo'
+import { IImgInfo } from '@conocer/picgo'
 import type { IUploaderConfig, PicgoAPI } from '../../vscode/PicgoAPI'
 
 export const channel = new Channel()

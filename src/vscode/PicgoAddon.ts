@@ -1,4 +1,4 @@
-import { IPicGo, IImgInfo, ILifecyclePlugins } from 'picgo'
+import { IPicGo, IImgInfo, ILifecyclePlugins } from '@conocer/picgo'
 import { PicgoAPI } from './PicgoAPI'
 import path from 'path'
 import { Editor } from './Editor'

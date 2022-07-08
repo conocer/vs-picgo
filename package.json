@@ -1,5 +1,5 @@
 {
-  "name": "vs-picgo",
+  "name": "conocer-picgo",
   "displayName": "%ext.displayName%",
   "description": "%ext.description%",
   "repository": {
@@ -14,8 +14,8 @@
     "image upload",
     "picture upload"
   ],
-  "version": "2.1.6",
-  "publisher": "Spades",
+  "version": "2.0.0",
+  "publisher": "conocer",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -111,7 +111,8 @@
             "qiniu",
             "tcyun",
             "upyun",
-            "weibo"
+            "weibo",
+            "internal"
           ],
           "default": "",
           "markdownDescription": "%config.picBed.uploader%"
@@ -126,10 +127,20 @@
             "qiniu",
             "tcyun",
             "upyun",
-            "weibo"
+            "weibo",
+            "internal"
           ],
           "default": "smms",
           "markdownDescription": "%config.picBed.current%"
+        },
+        "picgo.picBed.internal.url": {
+          "type": "string",
+          "default": ""
+        },
+        "picgo.picBed.internal.version": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%config.picBed.proxy%"
         },
         "picgo.picBed.proxy": {
           "type": "string",
@@ -402,6 +413,7 @@
     "yarn-audit-fix": "7.0.4"
   },
   "dependencies": {
+    "@conocer/picgo": "1.6.0",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",
     "@luozhu/vscode-channel": "0.8.0",
@@ -415,7 +427,6 @@
     "@rematch/updated": "2.1.1",
     "appdata-path": "1.0.0",
     "immer": "9.0.6",
-    "picgo": "1.5.0-alpha.0",
     "pupa": "3.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",

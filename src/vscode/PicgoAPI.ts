@@ -1,4 +1,10 @@
-import { IConfig, PicGo, IHelper, LifecyclePlugins, IPluginConfig } from 'picgo'
+import {
+  IConfig,
+  PicGo,
+  IHelper,
+  LifecyclePlugins,
+  IPluginConfig
+} from '@conocer/picgo'
 import { DataStore } from './DataStore'
 import vscode from 'vscode'
 import { decorateMessage, showError, showInfo } from './utils'
@@ -36,6 +42,14 @@ export class PicgoAPI {
       'settings.vsPicgo.customUploadName',
       defaultSettings.settings.vsPicgo.customUploadName
     )
+    this.setWorkspaceConfiguration()
+  }
+
+  setWorkspaceConfiguration() {
+    const picBed = (vscode.workspace.getConfiguration(
+      'picgo.picBed'
+    ) as any) as IConfig['picBed']
+    this.picgo.saveConfig({ picBed })
   }
 
   setConfigIfNotExist<T extends string>(configName: T, value: GetConfig<T>) {
@@ -97,6 +111,8 @@ export class PicgoAPI {
    * @param input This image file paths to be uploaded, will upload from clipboard if no input specified
    */
   async upload(input?: string[]) {
+    this.setWorkspaceConfiguration()
+
     // uploading progress, must be parallel with `picgo.upload` to catch events
     vscode.window.withProgress(
       {
